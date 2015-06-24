@@ -1,0 +1,38 @@
+﻿@using OctoBotSharp.Web.Areas.Admin.Models
+
+@model IEnumerable<ItemDefinitionSummaryViewModel>
+
+@{
+    ViewBag.Title = "Item Definition";
+}
+
+<h2>Item Definition</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Irc Char</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td style="color:#@item.IrcHexColor">@item.IrcChar</td>
+                <td>
+                    <ul class="list-inline">
+                        <li><a href="@Url.Action("Detail", new { id = item.Id })">Detail</a></li>
+                        <li><a href="@Url.Action("Edit", new { id = item.Id })">Edit</a></li>
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-primary" href="@Url.Action("Create")" role="button">Add Item Definition</a>

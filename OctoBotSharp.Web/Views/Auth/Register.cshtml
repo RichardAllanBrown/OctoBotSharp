@@ -1,0 +1,15 @@
+﻿@model OctoBotSharp.Web.Models.Auth.NewUserRegistration
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+@using (var form = Html.BeginForm(""))
+{
+    @Html.EditorForModel()
+    @Html.ValidationSummary(excludePropertyErrors: true)
+
+    <button class="btn btn-primary" type="submit">Register</button>
+}

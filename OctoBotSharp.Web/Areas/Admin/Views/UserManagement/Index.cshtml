@@ -1,0 +1,43 @@
+﻿@using OctoBotSharp.Web.Areas.Admin.Models
+@using OctoBotSharp.Domain
+
+@model IEnumerable<UserSummaryViewModel>
+
+@{
+    ViewBag.Title = "User Management";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Email Confirmed</th>
+            <th>Manage</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>@user.EmailConfirmed</td>
+                <td>
+                    <ul class="list-inline">
+                        <li><a href="@Url.Action("Detail", new { Id = user.Id })">Detail</a></li>
+                        <li><a href="@Url.Action("Permissions", new { Id = user.Id })">Permissions</a></li>
+                        @if (User.IsInRole(AuthRole.UserFinancesAdjustment))
+                        {
+                            <li><a href="@Url.Action("Adjust", "UserBalance", new { Id = user.Id })">Adjust Balance</a></li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

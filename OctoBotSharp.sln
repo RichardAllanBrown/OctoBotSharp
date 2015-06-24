@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OctoBotSharp.Service", "OctoBotSharp.Service\OctoBotSharp.Service.csproj", "{4F9EB914-5299-4FD4-B4D8-BA76E40A9AA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OctoBotSharp.Data", "OctoBotSharp.Data\OctoBotSharp.Data.csproj", "{316C3540-2958-4D70-82B4-56D49EF79986}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OctoBotSharp.Web", "OctoBotSharp.Web\OctoBotSharp.Web.csproj", "{305F1F16-97E5-4106-AC3F-64CF203DD904}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OctoBotSharp.Domain", "OctoBotSharp.Domain\OctoBotSharp.Domain.csproj", "{937807A4-60BE-4437-ADD0-0DEA30C9F40E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Irc", "Irc", "{5E9A7374-1E23-41B2-BAEE-DC7021351962}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OctoBotSharp.Irc.Core", "OctoBotSharp.Irc.Core\OctoBotSharp.Irc.Core.csproj", "{86DA86B4-95D6-4A09-AF51-25CE1988D945}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F9EB914-5299-4FD4-B4D8-BA76E40A9AA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F9EB914-5299-4FD4-B4D8-BA76E40A9AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F9EB914-5299-4FD4-B4D8-BA76E40A9AA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F9EB914-5299-4FD4-B4D8-BA76E40A9AA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{316C3540-2958-4D70-82B4-56D49EF79986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{316C3540-2958-4D70-82B4-56D49EF79986}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{316C3540-2958-4D70-82B4-56D49EF79986}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{316C3540-2958-4D70-82B4-56D49EF79986}.Release|Any CPU.Build.0 = Release|Any CPU
+		{305F1F16-97E5-4106-AC3F-64CF203DD904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{305F1F16-97E5-4106-AC3F-64CF203DD904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{305F1F16-97E5-4106-AC3F-64CF203DD904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{305F1F16-97E5-4106-AC3F-64CF203DD904}.Release|Any CPU.Build.0 = Release|Any CPU
+		{937807A4-60BE-4437-ADD0-0DEA30C9F40E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{937807A4-60BE-4437-ADD0-0DEA30C9F40E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{937807A4-60BE-4437-ADD0-0DEA30C9F40E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{937807A4-60BE-4437-ADD0-0DEA30C9F40E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86DA86B4-95D6-4A09-AF51-25CE1988D945}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86DA86B4-95D6-4A09-AF51-25CE1988D945}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86DA86B4-95D6-4A09-AF51-25CE1988D945}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86DA86B4-95D6-4A09-AF51-25CE1988D945}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{86DA86B4-95D6-4A09-AF51-25CE1988D945} = {5E9A7374-1E23-41B2-BAEE-DC7021351962}
+	EndGlobalSection
+EndGlobal
