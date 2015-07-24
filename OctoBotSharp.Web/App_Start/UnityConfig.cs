@@ -11,6 +11,8 @@ using Microsoft.Owin.Security;
 using System.Web;
 using System.Reflection;
 using OctoBotSharp.Service;
+using OctoBotSharp.Service.Parser;
+using OctoBotSharp.Service.Parser.Core;
 
 namespace OctoBotSharp.Web.App_Start
 {
@@ -70,6 +72,14 @@ namespace OctoBotSharp.Web.App_Start
             FluentValidation.AssemblyScanner.FindValidatorsInAssembly(Assembly.GetExecutingAssembly()).ForEach(result =>
                 container.RegisterType(result.InterfaceType, result.ValidatorType, new ContainerControlledLifetimeManager())
             );
+
+            // ScriptRunner Registrations
+            container.RegisterType<IScriptRunner, ScriptRunner>(new PerRequestLifetimeManager());
+            container.RegisterType<ILexer>(new PerRequestLifetimeManager(), new InjectionFactory(x => Lexer.CreateDefault()));
+            container.RegisterType<IParser, Parser>(new PerRequestLifetimeManager());
+            container.RegisterType<IExecutor, Executor>(new PerRequestLifetimeManager());
+            container.RegisterType<IFunctionFactory>(new ContainerControlledLifetimeManager(), 
+                new InjectionFactory(x => FunctionFactory.Create(type => UnityConfig.GetConfiguredContainer().Resolve(type))));
         }
     }
 }
