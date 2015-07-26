@@ -50,13 +50,13 @@ namespace OctoBotSharp.Service.Interp.Core
                 return SolveNode(firstChild);
             }
 
-            throw new ArgumentOutOfRangeException("Unrecognized node type!");
+            throw new ExecutorException("Unrecognized node type!");
         }
 
         private ResultNode SolveFunctionNode(FunctionNode node)
         {
             if (!node.Children.All(x => x is ResultNode))
-                throw new InvalidOperationException("Should not be asked to solve a function node where it has any non result node children");
+                throw new ExecutorException("Should not be asked to solve a function node where it has any non result node children");
 
             var funcClass = _funcFactory.Build(node.Value);
 
@@ -64,7 +64,7 @@ namespace OctoBotSharp.Service.Interp.Core
             if (result.IsSuccess)
                 return new ResultNode(result.Value.ToString(), result.Token, result.Message);
 
-            throw new InvalidOperationException("Funcation call failure");
+            throw new ExecutorException("Funcation call failure");
         }
 
         private ResultNode GetResultNode(ValueNode node)
