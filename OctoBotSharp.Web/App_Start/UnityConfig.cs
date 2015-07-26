@@ -12,7 +12,7 @@ using System.Web;
 using System.Reflection;
 using OctoBotSharp.Service;
 using OctoBotSharp.Service.Parser;
-using OctoBotSharp.Service.Parser.Core;
+using OctoBotSharp.Service.Interp.Core;
 
 namespace OctoBotSharp.Web.App_Start
 {
@@ -74,7 +74,7 @@ namespace OctoBotSharp.Web.App_Start
             );
 
             // ScriptRunner Registrations
-            container.RegisterType<IScriptRunner, ScriptRunner>(new PerRequestLifetimeManager());
+            container.RegisterType<IInterpreter, Interpreter>(new PerRequestLifetimeManager());
             container.RegisterType<ILexer>(new PerRequestLifetimeManager(), new InjectionFactory(x => Lexer.CreateDefault()));
             container.RegisterType<IParser, Parser>(new PerRequestLifetimeManager());
             container.RegisterType<IExecutor, Executor>(new PerRequestLifetimeManager());

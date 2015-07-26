@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OctoBotSharp.Service.Parser.Core
+namespace OctoBotSharp.Service.Interp.Core
 {
     public enum Token
     {

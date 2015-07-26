@@ -1,13 +1,8 @@
-﻿using OctoBotSharp.Domain;
-using OctoBotSharp.Service.Parser.Core;
-using System;
+﻿using OctoBotSharp.Service.Interp.Core;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace OctoBotSharp.Service.Parser.Functions
+namespace OctoBotSharp.Service.Interp.Functions
 {
     public abstract class FunctionBase
     {

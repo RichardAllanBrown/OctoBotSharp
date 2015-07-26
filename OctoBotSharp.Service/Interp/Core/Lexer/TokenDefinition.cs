@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace OctoBotSharp.Service.Parser.Core
+namespace OctoBotSharp.Service.Interp.Core
 {
     public class TokenDefinition
     {

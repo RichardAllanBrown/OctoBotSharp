@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OctoBotSharp.Service.Parser.Core
+namespace OctoBotSharp.Service.Interp.Core
 {
     public class ExecutionResult
     {

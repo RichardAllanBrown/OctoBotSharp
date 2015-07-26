@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OctoBotSharp.Service.Parser.Core
+namespace OctoBotSharp.Service.Interp.Core
 {
     public interface ILexer
     {
@@ -42,7 +42,7 @@ namespace OctoBotSharp.Service.Parser.Core
                 }
 
                 if (foundDef == null)
-                    throw new Exception(string.Format("Unrecognised token {0} at {1}", command[currentIndex], currentIndex));
+                    throw new LexerException(string.Format("Unrecognised token {0} at {1}", command[currentIndex], currentIndex));
 
                 var value = command.Substring(currentIndex, matchLen);
 

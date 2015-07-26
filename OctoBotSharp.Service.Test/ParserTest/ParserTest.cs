@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OctoBotSharp.Service.Parser.Core;
+using OctoBotSharp.Service.Interp.Core;
 using System.Collections.Generic;
 
 namespace OctoBotSharp.Service.Test.ParserTest
@@ -13,7 +13,7 @@ namespace OctoBotSharp.Service.Test.ParserTest
         [TestInitialize]
         public void SetUp()
         {
-            _parser = new Parser.Core.Parser();
+            _parser = new Interp.Core.Parser();
         }
 
         [TestMethod]
@@ -28,7 +28,7 @@ namespace OctoBotSharp.Service.Test.ParserTest
 
             var result = _parser.BuildTree(tokens);
 
-            Assert.IsTrue(result.Success, "Should be able to parse a simple single function expression");
+            Assert.IsNotNull(result, "Should be able to parse a simple single function expression");
         }
 
         [TestMethod]
@@ -45,7 +45,7 @@ namespace OctoBotSharp.Service.Test.ParserTest
 
             var result = _parser.BuildTree(tokens);
 
-            Assert.IsTrue(result.Success, "Should be able to parse a simple single function expression");
+            Assert.IsNotNull(result, "Should be able to parse a simple single function expression");
         }
 
         [TestMethod]
@@ -65,7 +65,33 @@ namespace OctoBotSharp.Service.Test.ParserTest
 
             var result = _parser.BuildTree(tokens);
 
-            Assert.IsTrue(result.Success, "Should be able to parse a simple single function expression");
+            Assert.IsNotNull(result, "Should be able to parse a simple single function expression");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ParserException))]
+        public void Parser_Exception_CloseBracketBeforeOpen()
+        {
+            var tokens = new List<Match>()
+            {
+                new Match(Token.CloseBracket, ")")
+            };
+
+            var result = _parser.BuildTree(tokens);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ParserException))]
+        public void Parser_Exception_MissingCloseBracket()
+        {
+            var tokens = new List<Match>()
+            {
+                new Match(Token.OpenBracket, "("),
+                new Match(Token.Word, "Function"),
+                new Match(Token.Int, "5"),
+            };
+
+            var result = _parser.BuildTree(tokens);
         }
     }
 }

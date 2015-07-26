@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OctoBotSharp.Service.Parser.Functions
+namespace OctoBotSharp.Service.Interp.Functions
 {
     public class InvocContext
     {

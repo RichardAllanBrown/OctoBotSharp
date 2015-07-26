@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OctoBotSharp.Service.Parser.Core;
-using OctoBotSharp.Service.Parser.Functions;
+using OctoBotSharp.Service.Interp.Core;
+using OctoBotSharp.Service.Interp.Functions;
 
 namespace OctoBotSharp.Service.Test.ParserTest
 {

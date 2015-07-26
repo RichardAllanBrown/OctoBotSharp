@@ -1,10 +1,11 @@
-﻿using System;
+﻿using OctoBotSharp.Service.Interp.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OctoBotSharp.Service.Parser.Core
+namespace OctoBotSharp.Service.Interp.Core
 {
     public interface IExecutor
     {
@@ -44,7 +45,7 @@ namespace OctoBotSharp.Service.Parser.Core
             {
                 var firstChild = node.Children.FirstOrDefault();
                 if (firstChild == null)
-                    throw new InvalidOperationException("Asked to solve an empty tree!");
+                    throw new ExecutorException("Asked to solve an empty tree!");
 
                 return SolveNode(firstChild);
             }

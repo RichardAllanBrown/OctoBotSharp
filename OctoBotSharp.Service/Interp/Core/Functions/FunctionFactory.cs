@@ -1,4 +1,4 @@
-﻿using OctoBotSharp.Service.Parser.Functions;
+﻿using OctoBotSharp.Service.Interp.Functions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OctoBotSharp.Service.Parser.Core
+namespace OctoBotSharp.Service.Interp.Core
 {
     public interface IFunctionFactory
     {

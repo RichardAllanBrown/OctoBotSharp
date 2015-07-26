@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OctoBotSharp.Service.Parser.Core;
+using OctoBotSharp.Service.Interp.Core;
 using System.Collections.Generic;
 
 namespace OctoBotSharp.Service.Test.ParserTest
@@ -25,7 +25,7 @@ namespace OctoBotSharp.Service.Test.ParserTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(LexerException))]
         public void Lexer_NoMatchingTokens_ShouldThrowException()
         {
             var lexer = new Lexer(Enumerable.Empty<TokenDefinition>());

@@ -4,27 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OctoBotSharp.Service.Parser.Core
+namespace OctoBotSharp.Service.Interp.Core
 {
     public interface IParser
     {
-        ParserResult BuildTree(IEnumerable<Match> matches);
+        ParseTree BuildTree(IEnumerable<Match> matches);
     }
 
     public class Parser : IParser
     {
-        public ParserResult BuildTree(IEnumerable<Match> matches)
+        public ParseTree BuildTree(IEnumerable<Match> matches)
         {
-            try
-            {
-                var result = ProcessMatches(matches);
-
-                return ParserResult.Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return ParserResult.Failure(ex.Message);
-            }
+            return ProcessMatches(matches);
         }
 
         private ParseTree ProcessMatches(IEnumerable<Match> matches)
@@ -40,7 +31,7 @@ namespace OctoBotSharp.Service.Parser.Core
                 if (match.Token == Token.OpenBracket)
                 {
                     if (expectFunc)
-                        throw new InvalidOperationException("Cannot have consecutive open brackets");
+                        throw new ParserException("Expected function name after open bracket");
 
                     expectFunc = true;
                     bracketCount++;
@@ -59,7 +50,7 @@ namespace OctoBotSharp.Service.Parser.Core
                     bracketCount--;
 
                     if (bracketCount < 0)
-                        throw new InvalidOperationException("Expected open bracket");
+                        throw new ParserException("Inconsistent brackets");
                 }
                 else
                 {
@@ -69,14 +60,9 @@ namespace OctoBotSharp.Service.Parser.Core
             }
 
             if (0 < bracketCount)
-                throw new InvalidOperationException("Expected additional close brackets");
+                throw new ParserException("Missing close brackets");
 
             return result;
-        }
-
-        private string GetValue(Match match)
-        {
-            return match.Value;
         }
     }
 }

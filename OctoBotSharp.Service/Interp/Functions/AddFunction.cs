@@ -1,10 +1,11 @@
-﻿using System;
+﻿using OctoBotSharp.Service.Interp.Functions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OctoBotSharp.Service.Parser.Functions
+namespace OctoBotSharp.Service.Interp.Functions
 {
     [FunctionNames("add")]
     public class AddFunction : FunctionBase

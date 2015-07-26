@@ -1,10 +1,10 @@
-﻿using OctoBotSharp.Service.Parser.Core;
+﻿using OctoBotSharp.Service.Interp.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OctoBotSharp.Service.Parser.Functions
+namespace OctoBotSharp.Service.Interp.Functions
 {
     public class Arguments
     {

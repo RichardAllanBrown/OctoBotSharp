@@ -2,8 +2,8 @@
 using System.Linq;
 using Moq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OctoBotSharp.Service.Parser.Core;
-using OctoBotSharp.Service.Parser.Functions;
+using OctoBotSharp.Service.Interp.Core;
+using OctoBotSharp.Service.Interp.Functions;
 
 namespace OctoBotSharp.Service.Test.ParserTest
 {
@@ -23,7 +23,7 @@ namespace OctoBotSharp.Service.Test.ParserTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
+        [ExpectedException(typeof(ExecutorException))]
         public void Executor_EmptyTree_ThrowsException()
         {
             var result = _executor.Execute(new ParseTree());
