@@ -11,8 +11,8 @@ using Microsoft.Owin.Security;
 using System.Web;
 using System.Reflection;
 using OctoBotSharp.Service;
-using OctoBotSharp.Service.Parser;
 using OctoBotSharp.Service.Interp.Core;
+using OctoBotSharp.Service.Interp;
 
 namespace OctoBotSharp.Web.App_Start
 {

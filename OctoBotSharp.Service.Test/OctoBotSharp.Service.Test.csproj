@@ -57,6 +57,7 @@
     <Compile Include="ParserTest\LexerTest.cs" />
     <Compile Include="ParserTest\FunctionFactoryTest.cs" />
     <Compile Include="ParserTest\ExecutorTest.cs" />
+    <Compile Include="ParserTest\InterpreterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ParserTest\ParserTest.cs" />
   </ItemGroup>

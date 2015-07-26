@@ -8,19 +8,27 @@ namespace OctoBotSharp.Service.Test.ParserTest
     [TestClass]
     public class FunctionFactoryTest
     {
+        private IFunctionFactory _factory;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            _factory = FunctionFactory.Create(x => Activator.CreateInstance(x));
+        }
+
         [TestMethod]
         public void FuncFactory_BuildsRandFunc()
         {
-            var factory = FunctionFactory.Create(SimpleBuildFunc());
-
-            var instance = factory.Build("rand");
+            var instance = _factory.Build("rand");
 
             Assert.AreEqual(typeof(RandFunction), instance.GetType(), "Factory should return correct type of function object");
         }
 
-        private static Func<Type, object> SimpleBuildFunc()
+        [TestMethod]
+        [ExpectedException(typeof(ExecutorException))]
+        public void FuncFactory_BuildUnrecognisedFunction_ThrowsException()
         {
-            return x => Activator.CreateInstance(x);
+            var instance = _factory.Build("UnknownFunctionName");
         }
     }
 }

@@ -26,6 +26,9 @@ namespace OctoBotSharp.Service.Interp.Core
 
         public FunctionBase Build(string functionName)
         {
+            if (!_funcs.ContainsKey(functionName))
+                throw new ExecutorException(string.Format("{0} is not a recognised function", functionName));
+
             var type = _funcs[functionName];
 
             return (FunctionBase)_builder.Invoke(type);

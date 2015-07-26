@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OctoBotSharp.Service.Parser
+namespace OctoBotSharp.Service.Interp
 {
     public interface IInterpreter
     {
